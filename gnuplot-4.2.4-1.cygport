@@ -2,7 +2,6 @@ DESCRIPTION="Command-line driven interactive plotting program"
 HOMEPAGE="http://www.gnuplot.info/"
 SRC_URI="mirror://sourceforge/gnuplot/${P}.tar.gz"
 PATCH_URI="
-	mirror://portage/sci-visualization/${PN}/files/${PN}-4.2.0-libggi.patch
 	mirror://portage/sci-visualization/${PN}/files/${PN}-4.2.2-disable_texi_generation.patch
 	mirror://portage/sci-visualization/${PN}/files/${PN}-4.2.3-app-defaults.patch
 "
