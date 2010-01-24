@@ -1,17 +1,25 @@
+WX_VERSION=2.8
+WX_CODESET=unicode
+inherit wxwidgets
+
 DESCRIPTION="Command-line driven interactive plotting program"
 HOMEPAGE="http://www.gnuplot.info/"
 SRC_URI="mirror://sourceforge/gnuplot/${P}.tar.gz"
 PATCH_URI="
 	mirror://portage/sci-visualization/${PN}/files/${PN}-4.2.2-disable_texi_generation.patch
 	mirror://portage/sci-visualization/${PN}/files/${PN}-4.2.3-app-defaults.patch
+	mirror://portage/sci-visualization/${PN}/files/${PN}-4.2.5-configure-pkgconfig.patch
+	mirror://gentoo/${PN}-4.2.5-lua-term.patch.bz2
+	4.2.6-automake.patch
 "
 
-# wxwidgets GUI crashes upon exit
+DIFF_EXCLUDES="config.hin *.tmp"
+
 CYGCONF_ARGS="
 	--libexecdir=/usr/lib
-	--disable-wxwidgets
+	--enable-wxwidgets --with-wx-config=${WX_CONFIG}
 	--with-gd
-	--with-ggi
+	--without-ggi
 	--without-linux-vga
 	--without-lisp-files
 	--with-plot=/usr/lib
